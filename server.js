@@ -9,6 +9,7 @@ var Articles = require("./models/Articles");
 // Inital Port
 var PORT = process.env.PORT || 3000;
 
+var app = express();
 // Run Morgan for Logging
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -35,4 +36,8 @@ db.once("open", function() {
 
 
 
-// Main Route Here
+// Main Route to send to React Homepage
+app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/public/index.html");
+});
+
