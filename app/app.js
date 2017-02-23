@@ -1,8 +1,12 @@
 // React Dependencies
 var React = require("react");
 var ReactDOM = require("react-dom");
-// Main Component
-var Main = require("./componencts/Main");
+
+var Router = require("react-router").Router
+
+var routes = require("./config/routes");
 
 // Render the Main component
-ReactDom.render(<Main />, document.getElementById("app"));
+ReactDOM.render(
+	<Router>{routes}</Router>,document.getElementById("app")
+	);
