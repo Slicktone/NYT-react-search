@@ -5,6 +5,7 @@ var Search = require("./children/Search");
 var Saved = require("./children/Saved");
 
 // Put Helper AJAX here
+// One for Rendering and for Updating (if component changes/Query Entered)
 
 
 // Create Main Component
@@ -33,8 +34,22 @@ var Main = React.createClass({
                     </div>
 
                     <div className="col-md-8">
-                        <Form setQuery
-    
+                        <Form setQuery={this.setQuery} />
+                    </div>
+
+                    <div className="col-md-8">
+                        // Results
+                        <Form setQuery={this.setQuery} />
+                    </div>
+
+                    <div className="col-md-8">
+                        // Saved
+                        <Form setQuery={this.setQuery} />
+                    </div>
+                </div>
+            </div>
         )
     }
-})
+});
+
+module.exports = Main;
