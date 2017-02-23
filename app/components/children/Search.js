@@ -26,7 +26,7 @@ var Search = React.createClass({
 
 		// **********TODO***********
 		// Set Parent to have search term
-		this.props...(this.state.query);
+		this.props.setQuery(this.state.query);
 		this.setState({ query: "" });
 	},
 
