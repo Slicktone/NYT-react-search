@@ -41,3 +41,14 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/public/index.html");
 });
 
+
+
+
+
+
+
+
+
+app.listen(PORT, function() {
+	console.log("App is listening on PORT: " + PORT);
+});
