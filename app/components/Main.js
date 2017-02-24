@@ -3,25 +3,58 @@ var React = require("react");
 // Sub Components
 var Search = require("./children/Search");
 var Saved = require("./children/Saved");
+var Result = require("./children/Results");
 
-// Put Helper AJAX here
-// One for Rendering and for Updating (if component changes/Query Entered)
+// Including the helper file for AJAX requests
+var helpers = require("./utils/helpers");
 
 
 // Create Main Component
 var Main = React.createClass({
     getInitialState: function() {
-        return {
-
-        }
+        return { query: "", results: "", saved: [] };
     },
+// Put Helper AJAX here
+// One for Rendering and for Updating (if component changes/Query Entered)
+    componentDidMount: function() {
+        helper.getSavedData().then(function(response){
+            console.log(response);
+            if(response !== this.state.saved) {
+                console.log("Saved Data", response.data);
+                this.setState({ saved: response.data });
+            }
+        }.bind(this));
+    },
+
+    componentDidUpdate: function() {
+        helper.runQuery(this.state.searchTerm).then(function(data) {
+            if(data !== this.state.results) {
+                console.log("Articles", data);
+                this.setState({ results: data });
+
+                // After result post to saved
+                helper.postData(this.state.searchTerm).then(function() {
+                    console.log("Updated");
+
+                // After post, get updated saved
+                    helper.getSavedData().then(function(response) {
+                        console.log("Currently Saved", response.data);
+                        console.log("Saved", response.data);
+                        this.setState({ saved: response.data });
+                        
+                    }.bind(this));
+                }.bind(this));
+            }
+        }.bind(this));
+    },
+
 
     // Allows children with setQuery function to update the parent. 
     setQuery: function(query) {
         this.setQuery({ searchTerm: query });
     },
 
-    // Rendering HTML
+    // Rendering
     render: function() {
         return (
             <div className="container">
@@ -39,16 +72,16 @@ var Main = React.createClass({
 
                     <div className="col-md-8">
                         // Results
-                        <Form setQuery={this.setQuery} />
+                        <Results articles={this.state.results} />
                     </div>
 
                     <div className="col-md-8">
                         // Saved
-                        <Form setQuery={this.setQuery} />
+                        <Saved saved={this.state.saved} />
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 });
 
