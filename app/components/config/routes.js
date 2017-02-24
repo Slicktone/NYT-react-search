@@ -19,6 +19,7 @@ var IndexRoute = router.IndexRoute;
 var Main = require("../Components/Main");
 var Search = require("../Components/Search");
 var Saved = require("../Components/Saved");
+var Results = require("../Components/Results")
 // Result Component??
 
 module.exports = (
@@ -26,7 +27,7 @@ module.exports = (
 		<Router path="/" component={Main}/>
 
 		<Router path="Search" component={Search}/>
-		<Router path="Result" component={Result}/>
+		<Router path="Results" component={Results}/>
 		<Router path="Saved" component={Saved}/>
 
 		<IndexRoute component={Search}/>
