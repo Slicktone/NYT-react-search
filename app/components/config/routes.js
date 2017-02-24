@@ -26,7 +26,7 @@ module.exports = (
 		<Router path="/" component={Main}/>
 
 		<Router path="Search" component={Search}/>
-		{/*<Router path="Result" component={Result}/>*/}
+		<Router path="Result" component={Result}/>
 		<Router path="Saved" component={Saved}/>
 
 		<IndexRoute component={Search}/>
