@@ -10,28 +10,28 @@ var Route = router.Route;
 var Router = router.Router;
 
 // Including the hashHistory prop for client side routing
-var hashHistory = router.hashHistory;
+var browserHistory = Router.browserHistory;
 
 // catch-all route(Index)
 var IndexRoute = router.IndexRoute;
 
 // Include for component paths
-var Main = require("../Components/Main");
-var Search = require("../Components/Search");
-var Saved = require("../Components/Saved");
-var Results = require("../Components/Results")
-// Result Component??
+var Main = require("../Main.jsx");
+var Search = require("../children/Search.jsx");
+var Saved = require("../children/Saved.jsx");
+var Results = require("../children/Results.jsx");
+
 
 module.exports = (
-	<Router history={hashHistory}>
-		<Router path="/" component={Main}/>
+	<Router history={browserHistory}>
+		<Route path="/" component={Main}/>
 
-		<Router path="Search" component={Search}/>
-		<Router path="Results" component={Results}/>
-		<Router path="Saved" component={Saved}/>
+		<Route path="Search" component={Search}/>
+		<Route path="Results" component={Results}/>
+		<Route path="Saved" component={Saved}/>
 
 		<IndexRoute component={Search}/>
-
+		
 	</Router>
 	);
 
