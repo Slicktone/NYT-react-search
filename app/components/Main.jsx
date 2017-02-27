@@ -1,12 +1,12 @@
 var React = require("react");
 
 // Sub Components
-var Search = require("./children/Search");
-var Saved = require("./children/Saved");
-var Result = require("./children/Results");
+var Search = require("./children/Search.jsx");
+var Saved = require("./children/Saved.jsx");
+var Results = require("./children/Results.jsx");
 
 // Including the helper file for AJAX requests
-var helpers = require("./utils/helpers");
+var helpers = require("../utils/helpers");
 
 
 // Create Main Component
@@ -67,7 +67,7 @@ var Main = React.createClass({
                     </div>
 
                     <div className="col-md-8">
-                        <Form setQuery={this.setQuery} />
+                        <Search setQuery={this.setQuery} />
                     </div>
 
                     <div className="col-md-8">

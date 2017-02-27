@@ -12,7 +12,6 @@ var Search = React.createClass({
 	// Controlled Component for Handling User Input
 		// More info on Controlled Components here:
 		// (https://facebook.github.io/react/docs/forms.html)
-	// Consider moving to grandchildren? (Query.js)
 
 	handleChange: function(event) {
 		this.setState({ query: event.target.value });
@@ -24,7 +23,7 @@ var Search = React.createClass({
 		// Requiring HTML to only submit if button is clicked
 		event.preventDefault();
 
-		// **********TODO***********
+		
 		// Set Parent to have search term
 		this.props.setQuery(this.state.query);
 		this.setState({ query: "" });

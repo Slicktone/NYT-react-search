@@ -19,6 +19,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
+// Main Route to send to React Homepage
+app.get("*", function(req, res) {
+    res.sendFile(__dirname, "public", "index.html");
+});
+
 // MongoDB Config
 mongoose.connect("mongodb://localhost/NYT-react-search");
 var db = mongoose.connection;
@@ -36,10 +41,6 @@ db.once("open", function() {
 
 
 
-// Main Route to send to React Homepage
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/public/index.html");
-});
 
 
 
