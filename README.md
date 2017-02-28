@@ -4,10 +4,11 @@
 #### Then save articles of interest to your Saved Articles area along with an annotation.
 
 ### A MERN app that connects to api's using axios. 
-### Saves articles of interest in a mongo db, using mongoose.
+### Saves articles of interest to Mongo.
 
-### To deploy this application you will need to install and run
+### To deploy this application you will need to install and run:
+##### List of Technologies TODO
 
 
 
-### App Deployed to: https://search-nyt-react.herokuapp.com/
+#### App Deployed to: https://search-nyt-react.herokuapp.com/
