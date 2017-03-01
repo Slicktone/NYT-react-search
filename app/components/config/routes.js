@@ -1,19 +1,23 @@
-var React = require("react");
+// var React = require("react");
 
-var router = require("react-router");
+// var router = require("react-router");
 
-// Including the Route component for individual routes
-var Route = router.Route;
+// // Including the Route component for individual routes
+// var Route = router.Route;
 
-// DONT GET THESE MIXED UP
-// Including the Router component for all Routes
-var Router = router.Router;
+// // DONT GET THESE MIXED UP
+// // Including the Router component for all Routes
+// var Router = router.Router;
 
-// Including the hashHistory prop for client side routing
-var browserHistory = Router.browserHistory;
+// // Including the hashHistory prop for client side routing
+// var browserHistory = Router.browserHistory;
 
-// catch-all route(Index)
-var IndexRoute = router.IndexRoute;
+// // catch-all route(Index)
+// var IndexRoute = router.IndexRoute;
+
+import React from 'react';
+// import { render } from 'react-dom';
+import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 
 // Include for component paths
 var Main = require("../Main.jsx");
