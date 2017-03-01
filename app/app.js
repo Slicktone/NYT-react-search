@@ -8,5 +8,5 @@ var routes = require("./components/config/routes");
 
 // Render the Main component
 ReactDOM.render(
-	<Router>{routes}</Router>,document.getElementById("app")
+	routes, document.getElementById("app")
 	);
